@@ -101,12 +101,15 @@
     <script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
     <script src="vendor/countdowntime/countdowntime.js"></script>
     <script>
+      // Ambil waktu sekarang
+      var currentTime = new Date().getTime();
+
       $(".cd100").countdown100({
         /*Set Endtime here*/
         /*Endtime must be > current time*/
         endtimeYear: 0,
         endtimeMonth: 0,
-        endtimeDate: 3,
+        endtimeDate: 3, // Ubah nilai ini menjadi 3
         endtimeHours: 18,
         endtimeMinutes: 0,
         endtimeSeconds: 0,
@@ -114,7 +117,11 @@
         // ex:  timeZone: "America/New_York"
         //go to " http://momentjs.com/timezone/ " to get timezone
       });
+
+      // Set nilai startTime ke currentTime
+      $(".cd100").data("countdown100")._setStartTime(currentTime);
     </script>
+
     <!--===============================================================================================-->
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
     <script>
