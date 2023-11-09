@@ -30,6 +30,31 @@
     <link rel="stylesheet" type="text/css" href="css/util.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <!--===============================================================================================-->
+
+    <style>
+      /* Add this CSS for the enhanced countdown styling */
+      .countdown-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .countdown-text {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .countdown {
+        display: inline-block;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 24px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        letter-spacing: 2px;
+      }
+    </style>
   </head>
   <body>
     <div
@@ -44,28 +69,11 @@
         <p class="txt-center m1-txt1 p-t-33 p-b-68">
           Website Ini Sedang Dalam Pengembangan Husein, Stay Tuned!
         </p>
-
-        <div class="wsize2 flex-w flex-c hsize1 cd100">
-          <div class="flex-col-c-m size2 how-countdown">
-            <span class="l1-txt1 p-b-9 days">3</span>
-            <span class="s1-txt1">Hari</span>
-          </div>
-
-          <div class="flex-col-c-m size2 how-countdown">
-            <span class="l1-txt1 p-b-9 hours">17</span>
-            <span class="s1-txt1">Jam</span>
-          </div>
-
-          <div class="flex-col-c-m size2 how-countdown">
-            <span class="l1-txt1 p-b-9 minutes">50</span>
-            <span class="s1-txt1">Menit</span>
-          </div>
-
-          <div class="flex-col-c-m size2 how-countdown">
-            <span class="l1-txt1 p-b-9 seconds">39</span>
-            <span class="s1-txt1">Detik</span>
-          </div>
+        <div class="countdown-container">
+          <p class="countdown-text"></p>
+          <div id="countdown" class="countdown"></div>
         </div>
+        <br /><br /><br /><br />
 
         <form class="flex-w flex-c-m contact100-form validate-form p-t-30">
           <div
@@ -88,6 +96,40 @@
       </div>
     </div>
 
+    <script>
+      // Set the date we're counting down to
+      var countDownDate = new Date("Nov 13, 2023 23:59:00 GMT+0700").getTime();
+
+      // Update the countdown every 1 second
+      var x = setInterval(function () {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+          days +
+          " Hari | " +
+          hours +
+          " Jam | " +
+          minutes +
+          " Menit | " +
+          seconds +
+          " Detik ";
+
+        // If the countdown is over, display a message
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -100,25 +142,6 @@
     <script src="vendor/countdowntime/moment-timezone.min.js"></script>
     <script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
     <script src="vendor/countdowntime/countdowntime.js"></script>
-    <script>
-      // Ambil waktu sekarang
-      var currentTime = new Date().getTime();
-
-      $(".cd100").countdown100({
-        /*Set Endtime here*/
-        /*Endtime must be > current time*/
-        endtimeYear: 2023, // Tahun
-        endtimeMonth: 10, // November adalah bulan ke-11 (dimulai dari 0)
-        endtimeDate: 13, // Tanggal
-        endtimeHours: 23, // Jam
-        endtimeMinutes: 59, // Menit
-        endtimeSeconds: 0,
-        timeZone: "GMT+07:00", // Sesuaikan dengan zona waktu
-      });
-
-      // Set nilai startTime ke currentTime
-      $(".cd100").data("countdown100")._setStartTime(currentTime);
-    </script>
 
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
