@@ -107,28 +107,19 @@
       $(".cd100").countdown100({
         /*Set Endtime here*/
         /*Endtime must be > current time*/
-        endtimeYear: 0,
-        endtimeMonth: 0,
-        endtimeDate: 3, // Ubah nilai ini menjadi 3
-        endtimeHours: 18,
-        endtimeMinutes: 0,
+        endtimeYear: 2023, // Tahun
+        endtimeMonth: 10, // November adalah bulan ke-11 (dimulai dari 0)
+        endtimeDate: 15, // Tanggal
+        endtimeHours: 23, // Jam
+        endtimeMinutes: 59, // Menit
         endtimeSeconds: 0,
-        timeZone: "",
-        // ex:  timeZone: "America/New_York"
-        //go to " http://momentjs.com/timezone/ " to get timezone
+        timeZone: "GMT+00:00", // Sesuaikan dengan zona waktu
       });
 
       // Set nilai startTime ke currentTime
       $(".cd100").data("countdown100")._setStartTime(currentTime);
     </script>
 
-    <!--===============================================================================================-->
-    <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    <script>
-      $(".js-tilt").tilt({
-        scale: 1.1,
-      });
-    </script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
   </body>
