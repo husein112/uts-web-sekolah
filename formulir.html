@@ -25,6 +25,7 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="aeaf21aa-f828-46be-aa76-df548cf40a5b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     <style>
       .menu-pendaftaran {
         background-color: #4caf50;
@@ -47,6 +48,21 @@
       .menu-pendaftaran:hover {
         background-color: #45a049;
       }
+      /* Menyesuaikan tata letak tombol live chat dan tombol "Back to Top" */
+.back-to-top {
+  z-index: 9999; /* Atur z-index untuk menempatkan tombol "Back to Top" di atas tombol live chat */
+  position: fixed;
+  top: 500px;
+  right: 33px;
+}
+
+/* Gaya tambahan untuk tombol live chat (sesuaikan sesuai kebutuhan) */
+.crisp-client {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 9998; /* Atur z-index agar tombol live chat berada di bawah tombol "Back to Top" */
+}
     </style>
   </head>
   <body>
